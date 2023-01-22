@@ -8,9 +8,10 @@ RUN apt install -y git
 
 ARG PIP_DIR=/home/user/pip/
 
-COPY requirements.txt ${PIP_DIR}
 COPY .env ${PIP_DIR}
-RUN pip install --no-cache-dir -r /home/user/pip/requirements.txt
+
+# Use forked python.yaml
+COPY 20-default.list /etc/ros/rosdep/sources.list.d
 
 # The following command is necessary, because running pip will begin that python REPL
 CMD /bin/bash

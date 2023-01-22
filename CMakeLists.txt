@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(rosauth_jwt)
 
-find_package(catkin REQUIRED COMPONENTS std_msgs) # robotnik_msgs)
+find_package(catkin REQUIRED COMPONENTS std_msgs robotnik_msgs)
 
-catkin_package(CATKIN_DEPENDS std_msgs) # robotnik_msgs)
+catkin_package(CATKIN_DEPENDS std_msgs robotnik_msgs)
 
 # do not wildcard install files since the root folder of the package will contain a debian folder for releasing
 catkin_install_python(PROGRAMS
@@ -20,13 +20,6 @@ install(FILES
 #   find_package(rostest)
 #   foreach(T
 #       test/test-add-two-ints.launch
-#       test/test-peer-subscribe-notify.launch
-#       test/test-add-two-ints-with-roscpp-server.launch
-#       test/test-talker-listener.launch
-#       test/test-talker-listener-with-roscpp.launch
-#       test/test-talker-listener-with-timer.launch
-#       test/test-on-shutdown.launch
-#       test/test-connection-header.launch)
 #      add_rostest(${T})
 #   endforeach()
 # endif()

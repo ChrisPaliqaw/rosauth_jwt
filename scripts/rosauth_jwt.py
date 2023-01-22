@@ -4,7 +4,7 @@ import os
 import jwt
 import rospy
 from robotnik_msgs.srv import VerifyJwt, VerifyJwtRequest, VerifyJwtResponse
-from dotenv import load_dotenv
+from environs import Env
 
 class RosauthJwt():
     SERVICE_NAME = "verify_jwt"
@@ -17,11 +17,12 @@ class RosauthJwt():
     DECODED_TOKEN_USER_GROUPS_KEY = "user-groups"
     
     def __init__(self):
-        load_dotenv()
+        env = Env()
+        env.read_env()
         # In Supabse, this is found in Project Settings -> API -> JST Secret
-        self.key: str = os.environ.get(RosauthJwt.JWT_KEY)
-        self.alg: str = os.environ.get(RosauthJwt.JWT_ALGORITHM)
-        self.audience: str = os.environ.get(RosauthJwt.JWT_AUDIENCE)
+        self.key: str = env(RosauthJwt.JWT_KEY)
+        self.alg: str = env(RosauthJwt.JWT_ALGORITHM)
+        self.audience: str = env(RosauthJwt.JWT_AUDIENCE)
         self.service = rospy.Service(RosauthJwt.SERVICE_NAME, VerifyJwt, self.handle_authenticate_token)
         self.ctrl_c = False
         rospy.on_shutdown(self.shutdownhook)
