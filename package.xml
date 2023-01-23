@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>rosauth_jwt</name>
   <version>0.1.0</version>
   <description>
@@ -9,11 +9,10 @@
   <license>MIT</license>
   <author>Chris Paliqaw</author>
   <buildtool_depend>catkin</buildtool_depend>
-  <depend>std_msgs</depend>
-  <depend>robotnik_msgs</depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>python3-environs-pip</exec_depend>
   <exec_depend>python-pyjwt-pip</exec_depend>
+  <exec_depend>rosbridge_msgs</exec_depend>
 
   <!-- <test_depend>rostest</test_depend> -->
 </package>

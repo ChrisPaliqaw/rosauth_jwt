@@ -3,7 +3,7 @@
 import os
 import jwt
 import rospy
-from robotnik_msgs.srv import VerifyJwt, VerifyJwtRequest, VerifyJwtResponse
+from rosbridge_msgs.srv import VerifyJwt, VerifyJwtRequest, VerifyJwtResponse
 from environs import Env
 
 class RosauthJwt():
@@ -38,7 +38,7 @@ class RosauthJwt():
         # https://auth0.com/blog/how-to-handle-jwt-in-python/
         try:
             header_data = jwt.get_unverified_header(request.token)
-            rospy.logwarn(f"{header_data[RosauthJwt.HEADER_DATA_ALG_KEY]=}")
+            rospy.logdebug(f"{header_data[RosauthJwt.HEADER_DATA_ALG_KEY]=}")
             # Best to know alg: https://en.wikipedia.org/wiki/JSON_Web_Token#Vulnerabilities
             if (header_data[RosauthJwt.HEADER_DATA_ALG_KEY] != self.alg):
                 raise ValueError(f"Unexpected JST algorith: expected {self.alg}, but was {header_data[RosauthJwt.HEADER_DATA_ALG_KEY]}")
@@ -51,20 +51,20 @@ class RosauthJwt():
                 # TODO: add JWT options
             # Token is valid and not expired
             email: str = decoded_token[RosauthJwt.DECODED_TOKEN_EMAIL_KEY]
-            rospy.logwarn(f"{email=}")
+            rospy.logdebug(f"{email=}")
             user_groups = decoded_token[RosauthJwt.DECODED_TOKEN_APP_METADATA_KEY][RosauthJwt.DECODED_TOKEN_USER_GROUPS_KEY]
-            rospy.logwarn(f"{user_groups=}")
+            rospy.logdebug(f"{user_groups=}")
             if user_groups:
                 response.authenticated = True
                 response.email = email
                 response.user_groups = user_groups
             else:
-                rospy.logerr("User has no user-groups")
+                response.error = "User has no user-groups"
                 response.authenticated = False
 
         except Exception as e:
             # Token is revoked, etc.
-            rospy.logerr(e)
+            response.error = e.__str__()
             response.authenticated = False
         return response
         
@@ -73,6 +73,6 @@ class RosauthJwt():
         self.ctrl_c = True
             
 if __name__ == '__main__':
-    rospy.init_node('rosauth_jwt', anonymous=True, log_level=rospy.DEBUG)
-    rosauth_firebase = RosauthJwt()
+    rospy.init_node('verify_jwt_node', anonymous=True, log_level=rospy.DEBUG)
+    rosauth_jwt = RosauthJwt()
     rospy.spin()

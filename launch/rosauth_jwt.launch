@@ -4,6 +4,6 @@
         <arg name="websocket_external_port" value="$(env SLOT_ROSBRIDGE_PORT)" />
         <arg name="authenticate" value="true" />
     </include> -->
-    <node name="rosauth_jwt" pkg="rosauth_jwt" type="rosauth_jwt.py">
+    <node name="verify_jwt_node" pkg="rosauth_jwt" type="rosauth_jwt.py">
     </node>
 </launch>
