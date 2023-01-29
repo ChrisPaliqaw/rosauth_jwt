@@ -12,7 +12,8 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>python3-environs-pip</exec_depend>
   <exec_depend>python-pyjwt-pip</exec_depend>
-  <exec_depend>rosbridge_msgs</exec_depend>
+  <depend>rosbridge_msgs</depend>
 
-  <!-- <test_depend>rostest</test_depend> -->
+  <test_depend>rostest</test_depend>
+  <test_depend>python-pytest</test_depend>
 </package>

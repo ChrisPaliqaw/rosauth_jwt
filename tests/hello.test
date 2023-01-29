@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="rosauth_jwt" type="hello" name="hello" />
+  <param name="test_module" value="hello"/>
+  <test test-name="hello" pkg="rosauth_jwt" type="pytest_runner.py" />
+</launch>

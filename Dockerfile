@@ -6,9 +6,11 @@ RUN apt install python3
 RUN apt install -y python3-pip
 RUN apt install -y git
 
-ARG PIP_DIR=/home/user/pip/
+RUN pip3 install -U catkin_tools
 
-COPY .env ${PIP_DIR}
+# ARG PIP_DIR=/home/user/pip/
+
+# COPY .env ${PIP_DIR}
 
 # Use forked python.yaml
 COPY 20-default.list /etc/ros/rosdep/sources.list.d
