@@ -19,7 +19,7 @@ class RosauthJwt():
     def __init__(self):
         env = Env()
         env.read_env()
-        # In Supabse, this is found in Project Settings -> API -> JST Secret
+        # In Supabase, this is found in Project Settings -> API -> JST Secret
         self.key: str = env(RosauthJwt.JWT_KEY)
         self.alg: str = env(RosauthJwt.JWT_ALGORITHM)
         self.audience: str = env(RosauthJwt.JWT_AUDIENCE)

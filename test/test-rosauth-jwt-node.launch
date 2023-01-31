@@ -1,0 +1,4 @@
+<launch>
+  <node name="verify_jwt_node" pkg="rosauth_jwt" type="rosauth_jwt.py" /> -->
+  <test test-name="test_rosauth_jwt_node" pkg="rosauth_jwt" type="test_rosauth_jwt_node.py" />
+</launch>
