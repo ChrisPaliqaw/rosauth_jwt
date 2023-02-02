@@ -7,9 +7,13 @@ If you follow the instructions for running the Docker, the dependencies will be 
 [the verify-jwt branch of my fork of rosbridge_suite](https://github.com/ChrisPaliqaw/rosbridge_suite/tree/verify-jwt)
 
 ## Compile, run and test the service
-
+After your Docker daemon is running, check out this project to your development machine and run the following command in the base directory.
 ```
 ./docker_run.bash
+```
+
+Your session instead the container will begin in the catkin_ws directory. Now you can run the following commands to build and source the project.
+```
 catkin build
 . devel/setup.bash
 rosdep update
@@ -17,7 +21,7 @@ rosdep install --from-paths src -y --ignore-src
 . devel/setup.bash 
 ```
 
-At this time, you must create a .env file in the base directory of the project. Since your base directory is mounted in Docker, the .env file
+Now create a .env file in the base directory of the project. Since your base directory is mounted in Docker, the .env file
 you're created will be immediately available in the container. You can use the following as a template - just fill in the values.
 If you use Google auth, you may not need to replace the values for JWT_ALGORITHM, and if you use Supbase, you don't need to replace the
 the JWT_AUDIENCE value.
@@ -36,12 +40,10 @@ Here's how to get these values
 1. Create a [Supabase](https://supabase.com/) project.
 2. To find your JWT_KEY, go to your projects Settings -> API screen
 ![Supabase JWT secret screen](supabase_secrets.png)
-3. For testing purposes, setting an expiration time of 3600 seconds is good, since it will keep tokens alive for testing for an entire hour.
-4. I've created a simple app that can be used to generate tokens. To see the tokens, open the app in Chrome, then open your browser console with
-the key F12. Then log in with a Google account using the "Sign In" link.
-
-
-`
+3. For testing purposes, setting an expiration time of 3600 seconds is good, since it will keep a new tokens alive for an entire hour, but if you want to quickly create your OLD_TEST_TOKEN, set a very low value. Note that once you obtain an OLD_TEST_TOKEN for a given project, you won't need to regenerate
+it, but you will need to recreate NEW_TEST_TOKEN's in the future.
+4. You can use [Crown Clothing](https://github.com/ChrisPaliqaw/crown-clothing) to generate tokens. To see the tokens, open the app in Chrome, then open your browser console with the key F12. Then log in with a Google account using the "Sign In" link. This is a Firebase -> Supbase port of an app from the course [Complete React Developer in 2023 (w/ Redux, Hooks, GraphQL): Zero to Mastery](https://academy.zerotomastery.io/a/aff_wx711nm4/external?affcode=441520_3jijbywc)<sup>*</sup>.
+* Affiliate link
 
 Now you can run the service
 ```
