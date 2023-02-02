@@ -44,7 +44,7 @@ Here's how to get these values
 it, but you will need to recreate NEW_TEST_TOKEN's in the future.
 4. Follow the instructions to install the scripts from [supabase-custom-claims](https://github.com/supabase-community/supabase-custom-claims) in your Supabase project.  
 5. Use [Crown Clothing](https://github.com/ChrisPaliqaw/crown-clothing) to generate tokens.
-6. To see the tokens, open the app in Chrome, then open your browser console with the key F12. Then log in with a Google account using the "Sign In" link. This is a Firebase -> Supbase port of an app from the course [Complete React Developer in 2023 (w/ Redux, Hooks, GraphQL): Zero to Mastery](https://academy.zerotomastery.io/a/aff_wx711nm4/external?affcode=441520_3jijbywc)<sup>*</sup>.
+6. To see the tokens, open the app in Chrome, then open your browser console with the key F12. Then log in with a Google account using the "Sign In" link. This is a Firebase -> Supabase port of an app from the course [Complete React Developer in 2023 (w/ Redux, Hooks, GraphQL): Zero to Mastery](https://academy.zerotomastery.io/a/aff_wx711nm4/external?affcode=441520_3jijbywc)<sup>*</sup>.
 * Affiliate link
 
 Now you can run the service
