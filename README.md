@@ -43,9 +43,13 @@ Here's how to get these values
 3. For testing purposes, setting an expiration time of 3600 seconds is good, since it will keep a new tokens alive for an entire hour, but if you want to quickly create your OLD_TEST_TOKEN, set a very low value. Note that once you obtain an OLD_TEST_TOKEN for a given project, you won't need to regenerate
 it, but you will need to recreate NEW_TEST_TOKEN's in the future.
 4. Follow the instructions to install the scripts from [supabase-custom-claims](https://github.com/supabase-community/supabase-custom-claims) in your Supabase project.  
-5. Use [Crown Clothing](https://github.com/ChrisPaliqaw/crown-clothing) to generate tokens.
-6. To see the tokens, open the app in Chrome, then open your browser console with the key F12. Then log in with a Google account using the "Sign In" link. This is a Firebase -> Supabase port of an app from the course [Complete React Developer in 2023 (w/ Redux, Hooks, GraphQL): Zero to Mastery](https://academy.zerotomastery.io/a/aff_wx711nm4/external?affcode=441520_3jijbywc)<sup>*</sup>.
-* Affiliate link
+5. Install and run [Crown Clothing](https://github.com/ChrisPaliqaw/crown-clothing). Login to the app in order to create a user in your Supabase project.
+6. Go to the Authentication tab of your Supabase project and copy the user id that you want to use for testing.
+![Copy a user id](supbase_user_id.png)
+7. 
+8. To see the tokens, open the app in Chrome, then open your browser console with the key F12. Then log in with a Google account using the "Sign In" link. This is a Firebase -> Supabase port of an app from the course [Complete React Developer in 2023 (w/ Redux, Hooks, GraphQL): Zero to Mastery](https://academy.zerotomastery.io/a/aff_wx711nm4/external?affcode=441520_3jijbywc)<sup>*</sup>.
+
+\* Affiliate link
 
 Now you can run the service
 ```
