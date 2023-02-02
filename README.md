@@ -38,7 +38,7 @@ NEW_TEST_TOKEN="[your new token here]"
 Here's how to get these values
 
 1. Create a [Supabase](https://supabase.com/) project.
-2. To find your JWT_KEY, go to your projects Settings -> API screen
+2. To find your JWT_KEY, go to your project's Settings -> API screen
 ![Supabase JWT secret screen](supabase_secrets.png)
 3. For testing purposes, setting an expiration time of 3600 seconds is good, since it will keep a new tokens alive for an entire hour, but if you want to quickly create your OLD_TEST_TOKEN, set a very low value. Note that once you obtain an OLD_TEST_TOKEN for a given project, you won't need to regenerate
 it, but you will need to recreate NEW_TEST_TOKEN's in the future.
