@@ -26,7 +26,7 @@ you're created will be immediately available in the container. You can use the f
 If you use Google auth, you may not need to replace the values for JWT_ALGORITHM, and if you use Supbase, you don't need to replace the
 the JWT_AUDIENCE value.
 
-``
+```
 JWT_KEY="[your key here]"
 JWT_ALGORITHM="HS256"
 JWT_AUDIENCE="authenticated"
