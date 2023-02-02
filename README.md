@@ -35,7 +35,7 @@ Here's how to get these values
 
 1. Create a [Supabase](https://supabase.com/) project.
 2. To find your JWT_KEY, go to your projects Settings -> API screen
-![Supabase JWT secret screen](supbase_secrets.png)
+![Supabase JWT secret screen](supabase_secrets.png)
 3. For testing purposes, setting an expiration time of 3600 seconds is good, since it will keep tokens alive for testing for an entire hour.
 4. I've created a simple app that can be used to generate tokens. To see the tokens, open the app in Chrome, then open your browser console with
 the key F12. Then log in with a Google account using the "Sign In" link.
