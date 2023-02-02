@@ -1,7 +1,7 @@
 on: [push]
 jobs:
   build-ros:
-    runs-on: ubuntu-18
+    runs-on: ubuntu-18.04
     steps:
       - uses: ros-tooling/setup-ros@v0.3
         with:
