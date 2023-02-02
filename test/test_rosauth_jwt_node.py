@@ -39,6 +39,7 @@ import unittest
 
 import rospy
 import rostest
+from environs import Env
 from rosbridge_msgs.srv import VerifyJwt, VerifyJwtRequest, VerifyJwtResponse
 
 PKG = 'rosauth_jwt'
@@ -51,9 +52,15 @@ AUTHENTICATED = "authenticated"
 class TestRosAuthJwtNode(unittest.TestCase):
 
     def test_rosauth_jwt_node(self):
+        env = Env()
+        env.read_env()
         rospy.wait_for_service(RosauthJwt.SERVICE_NAME)
         s = rospy.ServiceProxy(RosauthJwt.SERVICE_NAME, VerifyJwt)
-        tests = [{TOKEN:"nonsense", ERROR:"Not enough segments", AUTHENTICATED:False}]
+        old_token = env.str("OLD_TEST_TOKEN")
+        new_token = env.str("NEW_TEST_TOKEN")
+        tests = [{TOKEN:"nonsense", ERROR:"Not enough segments", AUTHENTICATED:False}, \
+            {TOKEN:new_token, ERROR:"", AUTHENTICATED:True}, \
+            {TOKEN:old_token, ERROR:"This is an incorrect error message", AUTHENTICATED:False}]
         for test in tests:
             print(f"{test=}")
             # test both simple and formal call syntax
