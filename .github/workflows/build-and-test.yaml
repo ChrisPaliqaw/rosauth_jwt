@@ -1,3 +1,4 @@
+on: [push]
 steps:
   - uses: ros-tooling/setup-ros@v2.7
     with:
