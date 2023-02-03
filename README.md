@@ -66,20 +66,15 @@ https://github.com/supabase-community/supabase-custom-claims
 installed them in christophomos's Org/crown-clothing
 
 with this token, open a second shell in vscode:
+```
 . devel/setup.bash 
 rosservice call /verify_jwt "token: '[inserttokenhere]'" 
-
 ```
 
 testing:
-used https://github.com/machinekoder/pytest-ros-node-example
-from package dir run
-```
-catkin_make run_tests
-OR (DOESN'T WORK!!! though https://catkin-tools.readthedocs.io/en/stable/verbs/catkin_test.html says it should)
-catkin test --test-target <package_name>
-OR from within the package dir
-catkin test --this
 
+from package dir run:
+```
+catkin test --this
 ```
 
