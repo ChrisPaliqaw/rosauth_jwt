@@ -9,7 +9,7 @@ Clone the following package in the same catkin_ws/src directory where you'll clo
 
 If you follow the instructions for running the Docker, the other dependencies will be installed automatically from package.xml
 
-## Compile, run and test the service
+## Compile
 After your Docker daemon is running, check out this project to your development machine and run the following command in the base directory.
 ```
 ./docker_run.bash
@@ -54,30 +54,25 @@ it, but you will need to recreate NEW_TEST_TOKEN's in the future.
 
 \* Affiliate link
 
-Now you can run the service
+## Run
+
 ```
 roslaunch rosauth_jwt rosauth_jwt.launch
 ```
 
-
-in the crown-clothing supabase project:
-
-run the install sql script from:
-
-https://github.com/supabase-community/supabase-custom-claims
-
-installed them in christophomos's Org/crown-clothing
-
-with this token, open a second shell in vscode:
+Copy the token you got from crown-clothing, then run in a second terminal from the rosauth_jwt directory, pasting in the token where indicated
 ```
+./docker_exec.bash
 . devel/setup.bash 
-rosservice call /verify_jwt "token: '[inserttokenhere]'" 
+rosservice call /verify_jwt "token: '[pastetokenhere]'" 
 ```
 
-testing:
+## Test
 
-from package dir run:
+from a new terminal in the package directory:
 ```
+./docker_exec.bash
+. devel/setup.bash
 catkin test --this
 ```
 
