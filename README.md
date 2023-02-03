@@ -2,9 +2,12 @@
 
 ## Dependencies
 
-If you follow the instructions for running the Docker, the dependencies will be installed automatically. For further dependencies, look at package.xml
+
+Clone the following package in the same catkin_ws/src directory where you'll close rosauth_jwt:
 
 [the verify-jwt branch of my fork of rosbridge_suite](https://github.com/ChrisPaliqaw/rosbridge_suite/tree/verify-jwt)
+
+If you follow the instructions for running the Docker, the other dependencies will be installed automatically from package.xml
 
 ## Compile, run and test the service
 After your Docker daemon is running, check out this project to your development machine and run the following command in the base directory.
