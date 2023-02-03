@@ -58,8 +58,11 @@ roslaunch rosauth_jwt rosauth_jwt.launch
 
 
 in the crown-clothing supabase project:
-run the install sql script and name it
+
+run the install sql script from:
+
 https://github.com/supabase-community/supabase-custom-claims
+
 installed them in christophomos's Org/crown-clothing
 
 with this token, open a second shell in vscode:
@@ -67,17 +70,6 @@ with this token, open a second shell in vscode:
 rosservice call /verify_jwt "token: '[inserttokenhere]'" 
 
 ```
-
-running on Mac:
-I am using Ubuntu 20
-I installed the HMI using the Docker instructions from "V.1.0 - React HMI - Installation guide"
-
-installed https://github.com/RobotnikAutomation/summit_xl_sim using:
-vcscode code using pip install python-vcscode
-replaced melodic with noetic whenever it appeared in the instructions
-
-
-
 
 testing:
 used https://github.com/machinekoder/pytest-ros-node-example
